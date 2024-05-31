@@ -9,11 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MemAccountRepo implements AccountRepository {
-    private static long nextAccountNumber = 0;
+    private static long AccountNumber = 0;
     private final Map<String, Account> repo = new HashMap<>();
     @Override
     public Account addAccount(String ownerId) {
-        String accCode = "A" + ++nextAccountNumber;
+        String accCode = "A" + ++AccountNumber;
         Account acc = new Account(accCode,ownerId,0.0);
         if(repo.putIfAbsent(accCode,acc) == null) return acc;
         return null;

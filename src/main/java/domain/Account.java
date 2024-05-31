@@ -6,12 +6,14 @@ import java.util.List;
 public class Account {
     private final String code;
     private final String ownerId;
+    private String password;
     private double balance;
     private final List<Transaction> transactions = new ArrayList<>();
 
-    public Account(String code, String ownerId, double balance) {
+    public Account(String code, String ownerId,String password,double balance) {
         this.code = code;
         this.ownerId = ownerId;
+        this.password = password;
         this.balance = balance;
     }
 
@@ -22,7 +24,6 @@ public class Account {
     public String getOwnerId() {
         return ownerId;
     }
-//setter owner
 
     public double getBalance() {
         return balance;
@@ -44,6 +45,7 @@ public class Account {
         return true;
     }
 
+
     public boolean withdraw(double amount) {
         if (amount > balance || amount <= 0.0) return false;
         balance -= amount;
@@ -62,4 +64,7 @@ public class Account {
         return transactions;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

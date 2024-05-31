@@ -67,7 +67,6 @@ public class BankingService {
         accounts.updateAccount(toAccount);
         return true;
 
-
     }
 
     public Collection<Account> allAccounts() {
